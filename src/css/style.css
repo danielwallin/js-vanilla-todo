@@ -21,6 +21,10 @@ html, body {
     font-family: "Arial", sans-serif;
 }
 
+body {
+    font-size: 14px;
+}
+
 p {
     margin: 0;
 }
@@ -48,7 +52,7 @@ button, .btn {
 
 main {
     margin: 0 auto;
-    max-width: 960px;
+    max-width: 768px;
 }
 
 /**
@@ -76,6 +80,7 @@ input[type="text"] {
     border-radius: 4px;
     padding: .7rem 1.2rem;
     -webkit-appearance: none;
+    outline: none;
 }
 
 input[type="checkbox"] {
@@ -91,6 +96,10 @@ input[type="checkbox"] {
 
 .list .list__wrapper {
 
+}
+
+.list .list__item {
+    margin-top: 2rem;
 }
 
 .list .list__wrapper {
@@ -111,13 +120,17 @@ input[type="checkbox"] {
  *
  */
 
+.search {
+    border: 1px solid #d0d0d0;
+}
+
 .search .search__input {
-    border-color: #d0d0d0;
+    border: none;
     border-radius: 4px;
 }
 
 .search button {
-    margin-left: 1rem;
+    margin: .5rem;
 }
 
 /**
@@ -160,4 +173,8 @@ input[type="checkbox"] {
 
 .txt-center {
     text-align: center;
+}
+
+.font-large {
+    font-size: 1.6rem;
 }
