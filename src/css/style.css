@@ -1,12 +1,24 @@
-
 /**
  *
  * Base
  *
  */
 
+:root {
+  --main-bg-color: #f1938c;
+}
+
 * {
     box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    margin: 0;
+}
+
+html, body {
+    font-family: "Arial", sans-serif;
 }
 
 p {
@@ -29,13 +41,47 @@ button, .btn {
     -webkit-appearance: none;
     background: #000;
     color: #fff;
+    padding: .5em .8em;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+main {
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+/**
+ *
+ * Buttons
+ *
+ */
+
+.btn__red {
+    background-color: var(--main-bg-color);
+}
+
+.btn__small {
+    font-size: 1.2rem;
+}
+
+/**
+ *
+ * Form
+ *
+ */
+
+input[type="text"] {
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    padding: .7rem 1.2rem;
+    -webkit-appearance: none;
 }
 
 input[type="checkbox"] {
     border-radius: 4px;
     padding: 4px;
 }
-
 
 /**
  *
@@ -55,6 +101,10 @@ input[type="checkbox"] {
 
 }
 
+.list .item__text {
+    padding-left: 1rem;
+}
+
 /**
  *
  * Search
@@ -66,9 +116,13 @@ input[type="checkbox"] {
     border-radius: 4px;
 }
 
+.search button {
+    margin-left: 1rem;
+}
+
 /**
  *
- * Helpers
+ * Common
  *
  */
 
@@ -94,4 +148,16 @@ input[type="checkbox"] {
 
 .alignContent {
     align-content: center;
+}
+
+.justifyBetween {
+    justify-content: space-between;
+}
+
+.txt-right {
+    text-align: right;
+}
+
+.txt-center {
+    text-align: center;
 }
