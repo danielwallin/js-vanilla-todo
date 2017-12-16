@@ -2,9 +2,9 @@
     'use strict';
 
     function App() {
-        const store = new window.Store();
-        const controller = new window.Controller(store);
-        const view = new window.View();
+        const model = new window.Model();
+        const controller = new window.Controller(model);
+        const view = new window.View(controller);
     }
 
     const app = new App();
