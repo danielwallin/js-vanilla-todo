@@ -5,27 +5,25 @@
         this.observers = [];
 
         // MOCK DATA
+        this.tags = [
+            {
+                text: 'in progress'
+            },
+            {
+                text: 'feature request'
+            }
+        ];
+
         this.items = [
             {
                 isDone: false,
                 text: 'test',
-                tags: [
-                    {
-                        text: 'in progress'
-                    }
-                ]
+                tags: [1, 2]
             },
             {
                 isDone: false,
                 text: 'test2',
-                tags: [
-                    {
-                        text: 'in progress'
-                    },
-                    {
-                        text: 'in progress'
-                    }
-                ]
+                tags: [1, 3]
             }
         ];
     }
@@ -35,16 +33,22 @@
     }
 
     Model.prototype.notifyAll = function () {
-        this.observers.forEach(function (observer) {
-            observer.update(this);
-        }.bind(this))
+        this.observers.forEach(function (observer) { observer.update(this); }.bind(this))
     }
 
-    Model.prototype.setItem = function (data) {
-        console.log(data);
-        this.items.push({
+    Model.prototype.addItem = function (data) {
+        const d = { isDone: false, text: data };
+        this.items.push(d);
+    }
 
-        });
+    Model.prototype.addTag = function (tag) {
+        const d = { text: tag };
+        this.tags.push(d);
+    }
+
+    Model.prototype.filterItems = function (data) {
+        const filtered = this.items.filter(x =>  { });
+        console.log(filtered);
     }
 
     Model.prototype.updateItem = function (data) {
