@@ -89,7 +89,5 @@
         if (i) { i.isDone = checked; }
     }
 
-    Model.prototype.getItem = function () {}
-
     window.Model = Model;
 })();

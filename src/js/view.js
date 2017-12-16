@@ -26,7 +26,7 @@
                     ${(item.tags) ? item.tags.map(x => `
                         <button style="background-color: ${(window.findObjectWithKey(tags, "id", x)) ? window.findObjectWithKey(tags, "id", x).color : ''}" class="btn btn__small">
                             ${(window.findObjectWithKey(tags, "id", x)) ? window.findObjectWithKey(tags, "id", x).text : ''}
-                        </button>`) : ''}
+                        </button>`).join('') : ''}
                 </div>
             </div>
         </li>`).join('')}`;
@@ -63,10 +63,10 @@
     }
 
     View.prototype.setEvents = function () {
-        const self = this;
+
         // lists
-        this.list.addEventListener("click", function (e) { self.setDoneItem(e); });
-        this.listDone.addEventListener("click", function (e) { self.setDoneItem(e); });
+        this.list.addEventListener("click", (e) => { this.setDoneItem(e); });
+        this.listDone.addEventListener("click", (e) => { this.setDoneItem(e); });
 
         // filter tags
         this.filters.addEventListener("click", function (e) {

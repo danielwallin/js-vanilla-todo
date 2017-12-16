@@ -16,10 +16,7 @@
         let matches = [];
         let match;
 
-        while ((match = regex.exec(inputText))) {
-            matches.push(match[1]);
-        }
-
+        while ((match = regex.exec(inputText))) { matches.push(match[1]); }
         return matches;
     }
 
