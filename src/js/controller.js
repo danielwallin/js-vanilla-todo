@@ -6,20 +6,38 @@
     }
 
     Controller.prototype.getItems = function() {
-        return this.model.items;
+        return this.model.getItems();
+    }
+
+    Controller.prototype.getDoneItems = function() {
+        return this.model.getDoneItems();
     }
 
     Controller.prototype.getTags = function() {
         return this.model.tags;
     }
 
-    Controller.prototype.addItem = function(data) {
-        this.model.addItem(data);
+    Controller.prototype.getFilteredItems = function() {
+        return this.model.filteredItems;
+    }
+
+    Controller.prototype.filterTagsWithId = function(id) {
+        this.model.filterTagsWithId(id);
         this.model.notifyAll();
     }
 
-    Controller.prototype.addTag = function(tag) {
-        this.model.addTag(tag);
+    Controller.prototype.addItem = function(data, id=null) {
+        this.model.addItem(data, id);
+        this.model.notifyAll();
+    }
+
+    Controller.prototype.addTag = function(tag, id=null) {
+        this.model.addTag(tag, id);
+        this.model.notifyAll();
+    }
+
+    Controller.prototype.toggleDone = function(item, checked) {
+        this.model.toggleDone(item, checked);
         this.model.notifyAll();
     }
 
