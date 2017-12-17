@@ -24,4 +24,14 @@
         return Math.random().toString(36).substr(2, 9);
     }
 
+    // https://stackoverflow.com/questions/1484506/random-color-generator
+    window.getRandomColor = () => {
+        let letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
 })(window);

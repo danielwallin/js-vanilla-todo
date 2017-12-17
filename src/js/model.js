@@ -7,40 +7,56 @@
         // MOCK DATA
         this.tags = [
             {
-                text: 'in progress',
-                color: '#7e8c8d',
-                id: '2'
-            },
-            {
                 text: 'feature request',
                 color: '#8e44ad',
                 id: '1'
             },
             {
+                text: 'in progress',
+                color: '#27ae60',
+                id: '2'
+            },
+            {
                 text: 'defect',
                 color: '#f39c12',
                 id: '3'
-            }
+            },
+            {
+                text: 'bug',
+                color: '#c0392c',
+                id: '4'
+            },
+            {
+                text: 'to process',
+                color: '#7e8c8d',
+                id: '5'
+            },
         ];
         this.filteredItems = [];
         this.items = [
             {
                 id: window.generateId(),
                 isDone: false,
-                text: 'test',
-                tags: ['1', '2']
+                text: 'Reply to message notifications directly in email',
+                tags: ['2', '1']
             },
             {
                 id: window.generateId(),
                 isDone: false,
-                text: 'test2',
-                tags: ['1', '3']
+                text: 'Remember choice when switching between multiple ads',
+                tags: ['4']
             },
             {
                 id: window.generateId(),
-                isDone: true,
-                text: 'test3',
-                tags: ['1']
+                isDone: false,
+                text: 'Replace joyce with Intercom messages',
+                tags: ['5']
+            },
+            {
+                id: window.generateId(),
+                isDone: false,
+                text: 'Fix maintenance pages to web servers',
+                tags: ['3']
             }
         ];
     }
@@ -62,23 +78,19 @@
     Model.prototype.addTag = function (tag, id) {
         const i = window.findObjectWithKey(this.tags, "text", tag);
         if (!i) {
-            const d = { text: tag, id: id, color: '#333' };
+            const d = { text: tag, id: id, color: window.getRandomColor() };
             this.tags.push(d);
         }
     }
 
     Model.prototype.filterTagsWithId = function (id) {
-        // console.log("id " , id , " " , this.items);
         this.filteredItems = this.items.filter(item => {
-            // console.log(item.tags, " " , id);
-            // console.log(item.tags.includes(id));
             return (item.tags && item.tags.includes(id));
         });
         return this.filteredItems;
     }
 
     Model.prototype.resetFilter = function () {
-        console.log("reset");
         this.filteredItems = [];
     }
 

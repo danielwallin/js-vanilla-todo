@@ -7,7 +7,6 @@
      *
      */
 
-
     const ListEmpty = function () {
         return `<li class="list__item alignCenter flex1">
             <div class="item__wrapper flex alignItems justifyBetween">
@@ -16,7 +15,7 @@
         </li>`
     }
 
-    const count = function (data, label) {
+    const Count = function (data, label) {
         return `${data.length > 0 ? `<div class='count flex justifyBetween'><span class='bold'>${label}</span><span> ${data.length} items</span></div>` : ''}`
     }
 
@@ -72,7 +71,6 @@
     }
 
     View.prototype.setEvents = function () {
-
         // lists
         this.list.addEventListener("click", (e) => { this.setDoneItem(e); });
         this.listDone.addEventListener("click", (e) => { this.setDoneItem(e); });
@@ -101,7 +99,6 @@
                 const hash = window.findHashtags(this.searchinput.value),
                     without = this.searchinput.value.replace(hash[0], "");
 
-                console.log(hash);
                 if (hash.length > 0) {
                     const tagids = [];
                     for (var index = 0; index < hash.length; index++) {
@@ -146,13 +143,13 @@
             filteredItems = this.controller.getFilteredItems();
 
         if (filteredItems.length <= 0) {
-            this.listCount.innerHTML = count(items, "Active");
-            this.listDoneCount.innerHTML = count(itemsDone, "Done");
+            this.listCount.innerHTML = Count(items, "Active");
+            this.listDoneCount.innerHTML = Count(itemsDone, "Done");
             this.list.innerHTML = ListItems(items, tags);
             this.listDone.innerHTML = ListItems(itemsDone, tags);
         } else {
-            this.listCount.innerHTML = count(filteredItems, "Filtered");
-            this.listDoneCount.innerHTML = count(0, "Done");
+            this.listCount.innerHTML = Count(filteredItems, "Filtered");
+            this.listDoneCount.innerHTML = Count(0, "Done");
             this.listDone.innerHTML = ListItems([], tags);
             this.list.innerHTML = ListItems(filteredItems, tags);
         }
