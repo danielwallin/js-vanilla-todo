@@ -22,7 +22,7 @@
     const ListItems = function (items, tags) {
         return `${items.map(item => `<li class="list__item alignCenter flex1">
             <div class="item__wrapper flex alignItems justifyBetween">
-                <input type="checkbox" data-id="${item.id}" />
+                <input ${item.isDone ? 'checked' : ''} type="checkbox" data-id="${item.id}" />
                 <p class="item__text">${item.text}</p>
                 <div class="item__hashtags txt-right flex1">
                     ${(item.tags) ? item.tags.map(x => `
@@ -42,6 +42,7 @@
         x.unshift(`<li class="filters__tag">
             <button data-id="reset" class="btn btn__small btn__reset">reset</button>
         </li>`);
+        x = x.join('');
         return x;
     }
 
@@ -65,8 +66,9 @@
 
     View.prototype.setDoneItem = function (e) {
         if (e.target.matches('input[type="checkbox"]')) {
+            // const ischecked = e.target.checked;
             const id = e.target.getAttribute("data-id");
-            this.controller.toggleDone(id, e.target.checked);
+            this.controller.toggleDone(id);
         }
     }
 
@@ -142,6 +144,7 @@
             tags = this.controller.getTags(),
             filteredItems = this.controller.getFilteredItems();
 
+        console.log("items " , items);
         if (filteredItems.length <= 0) {
             this.listCount.innerHTML = Count(items, "Active");
             this.listDoneCount.innerHTML = Count(itemsDone, "Done");

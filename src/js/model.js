@@ -72,7 +72,6 @@
     Model.prototype.addItem = function (data, ids) {
         const d = { id: window.generateId(), isDone: false, text: data, tags: ids };
         this.items.push(d);
-        console.log(this.items);
     }
 
     Model.prototype.addTag = function (tag, id) {
@@ -110,9 +109,9 @@
         return this.items.filter(x => !x.isDone);
     }
 
-    Model.prototype.toggleDone = function (id, checked) {
+    Model.prototype.toggleDone = function (id) {
         const i = window.findObjectWithKey(this.items, "id", id);
-        if (i) { i.isDone = checked; }
+        if (i) { i.isDone =! i.isDone; }
     }
 
     window.Model = Model;

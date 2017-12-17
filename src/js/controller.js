@@ -41,8 +41,8 @@
         this.model.notifyAll();
     }
 
-    Controller.prototype.toggleDone = function(item, checked) {
-        this.model.toggleDone(item, checked);
+    Controller.prototype.toggleDone = function(item) {
+        this.model.toggleDone(item);
         this.model.notifyAll();
     }
 
