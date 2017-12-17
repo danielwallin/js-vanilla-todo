@@ -1,0 +1,23 @@
+{
+  "name": "vanilla-frontend-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "gh-pages": "gh-pages",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielwallin/js-vanilla-todo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielwallin/js-vanilla-todo/issues"
+  },
+  "homepage": "https://github.com/danielwallin/js-vanilla-todo#readme",
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
+  }
+}
