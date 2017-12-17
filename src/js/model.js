@@ -9,17 +9,17 @@
             {
                 text: 'in progress',
                 color: '#7e8c8d',
-                id: 2
+                id: '2'
             },
             {
                 text: 'feature request',
                 color: '#8e44ad',
-                id: 1
+                id: '1'
             },
             {
                 text: 'defect',
                 color: '#f39c12',
-                id: 3
+                id: '3'
             }
         ];
         this.filteredItems = [];
@@ -28,19 +28,19 @@
                 id: window.generateId(),
                 isDone: false,
                 text: 'test',
-                tags: [1, 2]
+                tags: ['1', '2']
             },
             {
                 id: window.generateId(),
                 isDone: false,
                 text: 'test2',
-                tags: [1, 3]
+                tags: ['1', '3']
             },
             {
                 id: window.generateId(),
                 isDone: true,
                 text: 'test3',
-                tags: [1]
+                tags: ['1']
             }
         ];
     }
@@ -68,20 +68,34 @@
     }
 
     Model.prototype.filterTagsWithId = function (id) {
-        this.filterdItems = this.items.filter(item => { console.log(item.tags.includes(Number(id))); return item.tags.includes(Number(id)); });
-        return this.filterdItems;
+        // console.log("id " , id , " " , this.items);
+        this.filteredItems = this.items.filter(item => {
+            // console.log(item.tags, " " , id);
+            // console.log(item.tags.includes(id));
+            return (item.tags && item.tags.includes(id));
+        });
+        return this.filteredItems;
+    }
+
+    Model.prototype.resetFilter = function () {
+        console.log("reset");
+        this.filteredItems = [];
     }
 
     Model.prototype.filterItems = function (data) {
-        const filtered = this.items.filter(x =>  {  });
+        if (data.length <= 0) {
+            this.resetFilter();
+        } else {
+            this.filteredItems = this.items.filter((x) => { return x.text.toLocaleLowerCase().includes(data.toLowerCase()) });
+        }
     }
 
     Model.prototype.getDoneItems = function () {
-        return this.items.filter(x=> x.isDone);
+        return this.items.filter(x => x.isDone);
     }
 
     Model.prototype.getItems = function () {
-        return this.items.filter(x=> !x.isDone);
+        return this.items.filter(x => !x.isDone);
     }
 
     Model.prototype.toggleDone = function (id, checked) {

@@ -9,14 +9,24 @@
 <body>
     <main class="wrapper">
         <div class="search flex">
-            <input class="search__input font-large flex1" type="text" placeholder="Search or add item" />
+            <input class="search__input font-large flex1" type="text" placeholder="Filter or add item" />
             <button class="btn btn__red txt-upper">Add</button>
         </div>
+
         <ul class="filters flex flexflow"></ul>
-        <ul class="list"></ul>
-        <ul class="list listDone"></ul>
-    <main>
         
+        <div class="listactive overflow">
+            <div class="listCounter"></div>
+            <ul class="list"></ul>
+        </div>
+
+        <div class="listdone overflow">
+            <div class="listDoneCounter"></div>
+            <ul class="list listDone"></ul>
+        </div>
+
+    <main>
+
     <script src="src/js/helpers.js"></script>
     <script src="src/js/model.js"></script>
     <script src="src/js/controller.js"></script>

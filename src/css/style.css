@@ -200,3 +200,11 @@ input[type="checkbox"] {
 .font-large {
     font-size: 1.6rem;
 }
+
+.bold, .strong {
+    font-weight: 700;
+}
+
+.overflow {
+    overflow: hidden;
+}

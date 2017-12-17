@@ -26,6 +26,11 @@
         this.model.notifyAll();
     }
 
+    Controller.prototype.resetFilter = function(id) {
+        this.model.resetFilter();
+        this.model.notifyAll();
+    }
+
     Controller.prototype.addItem = function(data, id=null) {
         this.model.addItem(data, id);
         this.model.notifyAll();
