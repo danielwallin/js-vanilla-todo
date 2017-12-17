@@ -67,7 +67,6 @@
     View.prototype.setDoneItem = function (e) {
         if (e.target.matches('input[type="checkbox"]')) {
             const id = e.target.getAttribute("data-id");
-            console.log(e.target.checked);
             this.controller.toggleDone(id, e.target.checked);
         }
     }
@@ -102,6 +101,7 @@
                 const hash = window.findHashtags(this.searchinput.value),
                     without = this.searchinput.value.replace(hash[0], "");
 
+                console.log(hash);
                 if (hash.length > 0) {
                     const tagids = [];
                     for (var index = 0; index < hash.length; index++) {
@@ -111,13 +111,11 @@
                         this.controller.addTag(hash[index].replace("#", ""), id);
                     }
 
-                    let regexp = new RegExp('#([^\\s]*)', 'g');
-                    let itemtext = this.searchinput.value.replace(regexp, '');
-
+                    let regexp = new RegExp('(?:|^\s)(?:#)([a-zA-Zà-úÀ-Ú\d_\s]+)', 'g');
+                    let itemtext = this.searchinput.value.replace(findHashtags(this.searchinput.value).join(''), '');
                     this.controller.addItem(itemtext, tagids);
                 } else {
                     const i = window.findObjectWithKey(this.controller.model.tags, "text", hash[index]);
-                    console.log("tag ", i);
                     this.controller.addItem(without);
                 }
 

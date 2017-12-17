@@ -12,7 +12,7 @@
     // http://geekcoder.org/js-extract-hashtags-from-text/
     window.findHashtags = (inputText) => {
         inputText = inputText.toString();
-        let regex = /((?:|^\s)(?:#)([a-zA-Zà-úÀ-Ú\d]+))/gm;
+        let regex = /((?:|^\s)(?:#)([a-zA-Zà-úÀ-Ú\d_\s]+))/gm;
         let matches = [];
         let match;
 
