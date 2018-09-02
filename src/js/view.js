@@ -16,33 +16,33 @@
     }
 
     const Count = function (data, label) {
-        return `${data.length > 0 ? `<div class='count flex justifyBetween'><span class='bold'>${label}</span><span> ${data.length} items</span></div>` : ''}`
+        return `${data.length > 0 ? `<div class="count flex justifyBetween"><span class="bold">${label}</span><span> ${data.length} items</span></div>` : ""}`
     }
 
     const ListItems = function (items, tags) {
         return `${items.map(item => `<li class="list__item alignCenter flex1">
             <div class="item__wrapper flex alignItems justifyBetween">
-                <input ${item.isDone ? 'checked' : ''} type="checkbox" data-id="${item.id}" />
+                <input ${item.isDone ? "checked" : ""} type="checkbox" data-id="${item.id}" />
                 <p class="item__text">${item.text}</p>
                 <div class="item__hashtags txt-right flex1">
                     ${(item.tags) ? item.tags.map(x => `
-                        <button style="background-color: ${(window.findObjectWithKey(tags, "id", x)) ? window.findObjectWithKey(tags, "id", x).color : ''}" class="btn btn__small">
-                            ${(window.findObjectWithKey(tags, "id", x)) ? window.findObjectWithKey(tags, "id", x).text : ''}
-                        </button>`).join('') : ''}
+                        <button style="background-color: ${(window.findObjectWithKey(tags, "id", x)) ? window.findObjectWithKey(tags, "id", x).color : ""}" class="btn btn__small">
+                            ${(window.findObjectWithKey(tags, "id", x)) ? window.findObjectWithKey(tags, "id", x).text : ""}
+                        </button>`).join("") : ""}
                 </div>
             </div>
-        </li>`).join('')}`;
+        </li>`).join("")}`;
     }
 
     const FilterTags = function (data) {
         let x = [];
         x.push(`${data.map((item, i) => `<li class="filters__tag">
             <button style="background-color: ${item.color}" data-id="${item.id}" class="btn btn__small">${item.text}</button>
-        </li>`).join('')}`);
+        </li>`).join("")}`);
         x.unshift(`<li class="filters__tag">
             <button data-id="reset" class="btn btn__small btn__reset">all</button>
         </li>`);
-        x = x.join('');
+        x = x.join("");
         return x;
     }
 
@@ -110,7 +110,7 @@
                     }
 
                     let regexp = new RegExp('(?:|^\s)(?:#)([a-zA-Zà-úÀ-Ú\d_\s]+)', 'g');
-                    let itemtext = this.searchinput.value.replace(findHashtags(this.searchinput.value).join(''), '');
+                    let itemtext = this.searchinput.value.replace(findHashtags(this.searchinput.value).join(""), "");
                     this.controller.addItem(itemtext, tagids);
                 } else {
                     const i = window.findObjectWithKey(this.controller.model.tags, "text", hash[index]);
@@ -130,11 +130,11 @@
     }
 
     View.prototype.isValidItem = function (val) {
-        return (val || val !== '');
+        return (val || val !== "");
     }
 
     View.prototype.clearSearch = function () {
-        this.searchinput.value = '';
+        this.searchinput.value = "";
     }
 
     View.prototype.update = function () {
